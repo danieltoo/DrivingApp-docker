@@ -1,0 +1,34 @@
+{
+    "description": "Device subscription QuantumLeap",
+    "expires": "2040-01-01T14:00:00.00Z",
+    "subject": {
+        "entities": [
+            {
+                "idPattern": ".*",
+                "type": "Device"
+            }
+        ],
+        "condition": {
+            "attrs": [
+                "location"
+            ]
+        }
+    },
+    "notification": {
+        "attrs": [
+        "id",
+        "type",
+        "category",
+        "location",
+        "owner"
+        ],
+        "attrsFormat": "normalized",
+        "http": {
+            "url": "http://192.168.191.134:8668/v2/notify"
+        },
+        "metadata": [
+            "dateCreated",
+            "dateModified"
+        ]
+    }
+}

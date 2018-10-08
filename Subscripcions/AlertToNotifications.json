@@ -1,0 +1,50 @@
+{
+    "description": "Alert subscription to SmartNotifications",
+    "expires": "2040-01-01T14:00:00.00Z",
+    "subject": {
+      "entities": [
+        {
+          "idPattern": ".*",
+          "type": "Alert"
+        }
+      ],
+      "condition": {
+        "attrs": [
+          "id",
+          "type",
+          "category",
+          "subCategory",
+          "location",
+          "address",
+          "dateObserved",
+          "validFrom",
+          "validTo",
+          "description",
+          "alertSource",
+          "data",
+          "severity"
+        ]
+      }
+    },
+    "notification": {
+      "attrs": [
+        "id",
+        "type",
+        "category",
+        "subCategory",
+        "location",
+        "address",
+        "dateObserved",
+        "validFrom",
+        "validTo",
+        "description",
+        "alertSource",
+        "data",
+        "severity"
+      ],
+      "attrsFormat": "keyValues",
+      "http": {
+        "url": "http://192.168.191.134:3001/notify"
+      }
+    }
+}

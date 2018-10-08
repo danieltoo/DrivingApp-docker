@@ -1,0 +1,28 @@
+{
+    "description": "Alert subscription to QuantumLeap",
+    "expires": "2040-01-01T14:00:00.00Z",
+    "subject": {
+        "entities": [
+            {
+                "idPattern": ".*",
+                "type": "Alert"
+            }
+        ],
+        "condition": {
+            "attrs": [
+            ]
+        }
+    },
+    "notification": {
+        "attrs": [
+        ],
+        "attrsFormat": "normalized",
+        "http": {
+            "url": "http://192.168.191.134:8668/v2/notify"
+        },
+        "metadata": [
+            "dateCreated",
+            "dateModified"
+        ]
+    }
+}

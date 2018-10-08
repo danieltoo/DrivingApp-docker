@@ -1,0 +1,74 @@
+{
+    "id": "Device_Smartphone_7a85d9df720",
+    "type": "Device",
+    "accuracy": {
+        "type": "Number",
+        "value": 3.700000048,
+        "metadata": {}
+    },
+    "batteryLevel": {
+        "type": "Number",
+        "value": 52.999996185,
+        "metadata": {}
+    },
+    "category": {
+        "type": "Text",
+        "value": "smartphone",
+        "metadata": {}
+    },
+    "dateCreated": {
+        "type": "DateTime",
+        "value": "2018-02-12T15:18:35.00Z",
+        "metadata": {}
+    },
+    "dateModified": {
+        "type": "Text",
+        "value": "2018-10-08T16:33:15Z",
+        "metadata": {}
+    },
+    "ipAddress": {
+        "type": "Text",
+        "value": "192.168.249.20",
+        "metadata": {}
+    },
+    "latitude": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "location": {
+        "type": "geo:point",
+        "value": "18.876708, -99.219859",
+        "metadata": {}
+    },
+    "longitude": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "osVersion": {
+        "type": "Text",
+        "value": "5.1",
+        "metadata": {}
+    },
+    "owner": {
+        "type": "Text",
+        "value": "owner:id",
+        "metadata": {}
+    },
+    "refDeviceModel": {
+        "type": "Text",
+        "value": "DeviceModel_TCL_5015A",
+        "metadata": {}
+    },
+    "serialNumber": {
+        "type": "Text",
+        "value": "4TZHB6RO99999999",
+        "metadata": {}
+    },
+    "time": {
+        "type": "Number",
+        "value": 1521570000000,
+        "metadata": {}
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "id": "Alert:Device_Smartphone_6deecfc6322:1535493290",
+    "type": "Alert",
+    "alertSource": {
+        "type": "Text",
+        "value": "Device_Smartphone_6deecfc6322"
+    },
+    "category": {
+        "type": "Text",
+        "value": "unknownAlert"
+    },
+    "dateObserved": {
+        "type": "DateTime",
+        "value": "2018-08-28T16:54:50.00Z"
+    },
+    "description": {
+        "type": "Text",
+        "value": "Unknown Alert"
+    },
+    "location": {
+        "type": "geo:point",
+        "value": "18.876708, -99.219859"
+    },
+    "severity": {
+        "type": "Text",
+        "value": "critical"
+    },
+    "subCategory": {
+        "type": "Text",
+        "value": "unknown"
+    },
+    "validFrom": {
+        "type": "DateTime",
+        "value": "2018-08-28T16:54:50.00Z"
+    },
+    "validTo": {
+        "type": "DateTime",
+        "value": "2018-08-28T16:54:50.00Z"
+    }
+}

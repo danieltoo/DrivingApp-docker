@@ -1,0 +1,12 @@
+{
+    "user": {
+        "name": "Daniel",
+        "domain_id": "default",
+        "email": "torresestradadaniel@gmail.com",
+        "enabled": true,
+        "password": "mypass",
+        "firstname": "Daniel" ,
+        "lastname": "torres",
+        "username" : "7777777777"
+    }
+}

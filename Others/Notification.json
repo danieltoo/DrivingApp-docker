@@ -1,0 +1,17 @@
+{
+    "data" : [
+        {
+            "id": "Alert:Device_Smartphone_6deecfc6322d22c9:1536856676",
+            "type": "Alert",
+            "alertSource": "Device_Smartphone_6deecfc6322d22c9",
+            "category": "unknownAlert",
+            "dateObserved": "2018-09-13T11:37:56.00Z",
+            "description": "Unknown Alert",
+            "location": "18.876708, -99.219859",
+            "severity": "critical",
+            "subCategory": "unknown",
+            "validFrom": "2018-09-13T11:37:56.00Z",
+            "validTo": "2018-09-13T11:37:56.00Z"
+        }
+    ]
+}
