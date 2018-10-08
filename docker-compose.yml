@@ -108,7 +108,7 @@ services:
     environment:
       - CONTEXT=orion
       - SMART_SERVICE=smartservice
-      - FCM_SERVER_TOKEN=AAAAg2zJvBk:APA91bF5zfWwhVLQjSMF6B5NgIGlKVx3RRwECzX9_RzRJ4UP3lKDDWM9UB1gSXYSvCA1P9wQeyy0JSa0z68eUzpjR9h-YBqamimQ97WuG3cBmuwoCXhSXzIFb7aEp-3Ye1zS1ejuPiQZ
+      - FCM_SERVER_TOKEN=FCMTOKEN
       - PASSWORD=SM2
       - USER_NAME=daniel
 
