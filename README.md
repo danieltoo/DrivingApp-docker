@@ -11,7 +11,7 @@
 
 **Docker Containers**
 
-| image | version | Container<br>name | Ports | depends on |
+| Images | Version | Container<br>name | Ports | Depends on |
 |--|--|--| --|--|
 | **fiware/orion**| **1.15.1** | orion | **1026** | mongo |
 | **mongo** | **3.2** | mongo | **27017** |  |
