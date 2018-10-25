@@ -1,5 +1,11 @@
 # Welcome to DrivingApp-docker!
 
+**Requirements**
+
+- git 
+- docker 
+- docker-compose
+
 **Clone this repo**
 
     git clone https://github.com/smartsdkCenidet/DrivingApp-docker.git
