@@ -80,8 +80,8 @@ services:
     volumes:
       - mariadb:/data
 
-  smartservice :
-    image : cenidetiot/smartsecurity-web-service
+  drivingservice :
+    image : cenidetiot/drivingapp-service
     ports : 
       - "4005:4005"
     links :
@@ -100,11 +100,11 @@ services:
       - KEYSTONE_PORT=5000
   
   notifications :
-    image: cenidetiot/smartsecurity-notifications
+    image: cenidetiot/notifications-service
     ports :
       - "3001:3001"
     links :
-      - smartservice
+      - drivingservice
     environment:
       - CONTEXT=orion
       - SMART_SERVICE=smartservice

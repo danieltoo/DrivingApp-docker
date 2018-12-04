@@ -24,7 +24,7 @@
         ],
         "attrsFormat": "normalized",
         "http": {
-            "url": "http://192.168.191.134:8668/v2/notify"
+            "url": "http://quantumleap:8668/v2/notify"
         },
         "metadata": [
             "dateCreated",

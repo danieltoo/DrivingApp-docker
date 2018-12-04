@@ -44,7 +44,7 @@
       ],
       "attrsFormat": "keyValues",
       "http": {
-        "url": "http://192.168.191.134:3001/notify"
+        "url": "http://notifications:3001/notify"
       }
     }
 }
