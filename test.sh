@@ -12,13 +12,14 @@ echo "Checking the Notifications Service"
 curl -X GET http://0.0.0.0:3001/
 echo "Checking the KeyStone"
 curl -X GET http://0.0.0.0:5000/ -H 'Accept: application/json' -H 'X-Auth-token: ADMIN'
-echo "Creating Device Subscriptions to QL"
 
+echo "Creating Device Subscriptions to QL"
 curl -iX POST http://0.0.0.0:1026/v2/subscriptions -d @Subscriptions/DeviceToQL.json --header "Content-Type: application/json"
 echo "Creating Alert Subscriptions to QL"
 curl -iX POST http://0.0.0.0:1026/v2/subscriptions -d @Subscriptions/AlertToQL.json --header "Content-Type: application/json"
 echo "Creating Alert Subscriptions to Notifications"
 curl -iX POST http://0.0.0.0:1026/v2/subscriptions -d @Subscriptions/AlertToNotifications.json --header "Content-Type: application/json"
+
 echo "Creating Device Entity in Orion"
 curl -iX POST http://0.0.0.0:1026/v2/entities -d @"Orion Entities/Device.json" --header "Content-Type: application/json"
 echo "Creating Device Token Entity in Driving Service"
