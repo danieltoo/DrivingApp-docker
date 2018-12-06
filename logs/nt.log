@@ -1,0 +1,137 @@
+ * Running on http://0.0.0.0:3001/ (Press CTRL+C to quit)
+172.20.0.1 - - [06/Dec/2018 22:06:30] "GET / HTTP/1.1" 200 -
+172.20.0.7 - - [06/Dec/2018 22:06:33] "POST /notify HTTP/1.1" 201 -
+172.20.0.7 - - [06/Dec/2018 22:06:35] "POST /notify HTTP/1.1" 201 -
+172.20.0.7 - - [06/Dec/2018 22:06:37] "POST /notify HTTP/1.1" 201 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/SocketServer.py", line 290, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/usr/local/lib/python2.7/SocketServer.py", line 318, in process_request
+    self.finish_request(request, client_address)
+  File "/usr/local/lib/python2.7/SocketServer.py", line 331, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python2.7/SocketServer.py", line 654, in __init__
+    self.finish()
+  File "/usr/local/lib/python2.7/SocketServer.py", line 713, in finish
+    self.wfile.close()
+  File "/usr/local/lib/python2.7/socket.py", line 283, in close
+    self.flush()
+  File "/usr/local/lib/python2.7/socket.py", line 307, in flush
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])
+error: [Errno 32] Broken pipe
+172.20.0.7 - - [06/Dec/2018 22:06:39] "POST /notify HTTP/1.1" 201 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/SocketServer.py", line 290, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/usr/local/lib/python2.7/SocketServer.py", line 318, in process_request
+    self.finish_request(request, client_address)
+  File "/usr/local/lib/python2.7/SocketServer.py", line 331, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python2.7/SocketServer.py", line 654, in __init__
+    self.finish()
+  File "/usr/local/lib/python2.7/SocketServer.py", line 713, in finish
+    self.wfile.close()
+  File "/usr/local/lib/python2.7/socket.py", line 283, in close
+    self.flush()
+  File "/usr/local/lib/python2.7/socket.py", line 307, in flush
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])
+error: [Errno 32] Broken pipe
+172.20.0.7 - - [06/Dec/2018 22:06:42] "POST /notify HTTP/1.1" 201 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/SocketServer.py", line 290, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/usr/local/lib/python2.7/SocketServer.py", line 318, in process_request
+    self.finish_request(request, client_address)
+  File "/usr/local/lib/python2.7/SocketServer.py", line 331, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python2.7/SocketServer.py", line 654, in __init__
+    self.finish()
+  File "/usr/local/lib/python2.7/SocketServer.py", line 713, in finish
+    self.wfile.close()
+  File "/usr/local/lib/python2.7/socket.py", line 283, in close
+    self.flush()
+  File "/usr/local/lib/python2.7/socket.py", line 307, in flush
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])
+error: [Errno 32] Broken pipe
+Alerta Recibida
+{u'category': u'unknownAlert', u'dateObserved': u'2018-08-28T16:54:50.00Z', u'subCategory': u'unknown', u'severity': u'critical', u'validTo': u'2018-08-28T16:54:50.00Z', u'location': u'18.876708, -99.219859', u'alertSource': u'Device_Smartphone_6deecfc6322', u'validFrom': u'2018-08-28T16:54:50.00Z', u'type': u'Alert', u'id': u'Alert:Device_Smartphone_6deecfc6322:153549329000202_31544124391.0', u'description': u'Unknown Alert'}
+('Alerta sucitada en ', u'Cenidet Completo')
+https://smartsecurity-webservice.herokuapp.com/service/devices/zone/Zone_1537468126033
+DEVICES ON ZONE
+DEVICES NEAR
+critical
+Alerta Recibida
+{u'category': u'unknownAlert', u'dateObserved': u'2018-08-28T16:54:50.00Z', u'subCategory': u'unknown', u'severity': u'critical', u'validTo': u'2018-08-28T16:54:50.00Z', u'location': u'18.876708, -99.219859', u'alertSource': u'Device_Smartphone_6deecfc6322', u'validFrom': u'2018-08-28T16:54:50.00Z', u'type': u'Alert', u'id': u'Alert:Device_Smartphone_6deecfc6322:153549329000202_31544133990.0', u'description': u'Unknown Alert'}
+('Alerta sucitada en ', u'Cenidet Completo')
+https://smartsecurity-webservice.herokuapp.com/service/devices/zone/Zone_1537468126033
+DEVICES ON ZONE
+DEVICES NEAR
+critical
+Alerta Recibida
+{u'category': u'unknownAlert', u'dateObserved': u'2018-08-28T16:54:50.00Z', u'subCategory': u'unknown', u'severity': u'critical', u'validTo': u'2018-08-28T16:54:50.00Z', u'location': u'18.876708, -99.219859', u'alertSource': u'Device_Smartphone_6deecfc6322', u'validFrom': u'2018-08-28T16:54:50.00Z', u'type': u'Alert', u'id': u'Alert:Device_Smartphone_6deecfc6322:153549329000202_31544133990.0', u'description': u'Unknown Alert'}
+('Alerta sucitada en ', u'Cenidet Completo')
+https://smartsecurity-webservice.herokuapp.com/service/devices/zone/Zone_1537468126033
+DEVICES ON ZONE
+DEVICES NEAR
+critical
+----------------------------------------
+Exception happened during processing of request from ('172.20.0.7', 40336)
+----------------------------------------
+Alerta Recibida
+{u'category': u'unknownAlert', u'dateObserved': u'2018-08-28T16:54:50.00Z', u'subCategory': u'unknown', u'severity': u'critical', u'validTo': u'2018-08-28T16:54:50.00Z', u'location': u'18.876708, -99.219859', u'alertSource': u'Device_Smartphone_6deecfc6322', u'validFrom': u'2018-08-28T16:54:50.00Z', u'type': u'Alert', u'id': u'Alert:Device_Smartphone_6deecfc6322:153549329000202_31544133990.0', u'description': u'Unknown Alert'}
+('Alerta sucitada en ', u'Cenidet Completo')
+https://smartsecurity-webservice.herokuapp.com/service/devices/zone/Zone_1537468126033
+DEVICES ON ZONE
+DEVICES NEAR
+critical
+----------------------------------------
+Exception happened during processing of request from ('172.20.0.7', 40338)
+----------------------------------------
+Alerta Recibida
+{u'category': u'unknownAlert', u'dateObserved': u'2018-08-28T16:54:50.00Z', u'subCategory': u'unknown', u'severity': u'critical', u'validTo': u'2018-08-28T16:54:50.00Z', u'location': u'18.876708, -99.219859', u'alertSource': u'Device_Smartphone_6deecfc6322', u'validFrom': u'2018-08-28T16:54:50.00Z', u'type': u'Alert', u'id': u'Alert:Device_Smartphone_6deecfc6322:153549329000202_31544133990.0', u'description': u'Unknown Alert'}
+('Alerta sucitada en ', u'Cenidet Completo')
+https://smartsecurity-webservice.herokuapp.com/service/devices/zone/Zone_1537468126033
+DEVICES ON ZONE
+DEVICES NEAR
+critical
+----------------------------------------
+Exception happened during processing of request from ('172.20.0.7', 40340)
+----------------------------------------
+Alerta Recibida
+{u'category': u'unknownAlert', u'dateObserved': u'2018-08-28T16:54:50.00Z', u'subCategory': u'unknown', u'severity': u'critical', u'validTo': u'2018-08-28T16:54:50.00Z', u'location': u'18.876708, -99.219859', u'alertSource': u'Device_Smartphone_6deecfc6322', u'validFrom': u'2018-08-28T16:54:50.00Z', u'type': u'Alert', u'id': u'Alert:Device_Smartphone_6deecfc6322:153549329000202_31544133990.0', u'description': u'Unknown Alert'}
+('Alerta sucitada en ', u'Cenidet Completo')
+172.20.0.7 - - [06/Dec/2018 22:06:44] "POST /notify HTTP/1.1" 201 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/SocketServer.py", line 290, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/usr/local/lib/python2.7/SocketServer.py", line 318, in process_request
+    self.finish_request(request, client_address)
+  File "/usr/local/lib/python2.7/SocketServer.py", line 331, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python2.7/SocketServer.py", line 654, in __init__
+    self.finish()
+  File "/usr/local/lib/python2.7/SocketServer.py", line 713, in finish
+    self.wfile.close()
+  File "/usr/local/lib/python2.7/socket.py", line 283, in close
+    self.flush()
+  File "/usr/local/lib/python2.7/socket.py", line 307, in flush
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])
+error: [Errno 32] Broken pipe
+172.20.0.7 - - [06/Dec/2018 22:06:46] "POST /notify HTTP/1.1" 201 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/SocketServer.py", line 290, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/usr/local/lib/python2.7/SocketServer.py", line 318, in process_request
+    self.finish_request(request, client_address)
+  File "/usr/local/lib/python2.7/SocketServer.py", line 331, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python2.7/SocketServer.py", line 654, in __init__
+    self.finish()
+  File "/usr/local/lib/python2.7/SocketServer.py", line 713, in finish
+    self.wfile.close()
+  File "/usr/local/lib/python2.7/socket.py", line 283, in close
+    self.flush()
+  File "/usr/local/lib/python2.7/socket.py", line 307, in flush
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])
+error: [Errno 32] Broken pipe
+https://smartsecurity-webservice.herokuapp.com/s

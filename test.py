@@ -2,6 +2,9 @@ import requests
 import json
 import sys
 import datetime, time
+import subprocess
+import os
+
 
 class color:
    PURPLE = '\033[95m'
@@ -50,7 +53,7 @@ def checkServices():
             qlMessage += paintError("ERROR %i" % (ql.status_code))
         print(qlMessage)
     except: 
-        print(paintError("The QuamtumLeap is not running"))
+        print(paintError("The QuantumLeap is not running"))
         _ql = False
     #DRIVINGAPP SERVICE TEST   
     try:
@@ -200,6 +203,30 @@ def createAlert(_orion =  True) :
                 alertMessage += paintError("FAILED")
             print(alertMessage)
 
+def checkcContainers():
+    isOKQL = False
+    isOKNT = False
+    os.system("docker logs drivingapp-docker_quantumleap_1 &> logs/ql.log") 
+    qlLine = subprocess.check_output(['tail', '-1', "logs/ql.log"])
+    if qlLine[79:82] == "200":
+        isOK = True
+    else:
+        isOKQL = False
+        print(paintError("Error found in QuantumLeap please check using docker logs"))
+
+    os.system("docker logs drivingapp-docker_notifications_1 &> logs/nt.log") 
+    ntLine = subprocess.check_output(['tail', '-1', "logs/nt.log"])
+    if ntLine[62:65] == "201":
+        isOKNT = True
+    else:
+        isOKQL = False
+        print(paintError("Error found in Notifications Service please check using docker logs"))
+        
+    if isOKQL and isOKNT :
+        print(paintOK("Containers runnig correctly"))
+            
+        
+
 if (len(sys.argv) > 1) :
     if sys.argv[1] == "check" :
         checkServices()
@@ -212,12 +239,18 @@ if (len(sys.argv) > 1) :
 
     if sys.argv[1] == "create_alert":
         createAlert()
+    
+    if sys.argv[1] == "containers":
+        checkcContainers()
 else : 
-    print(color.BOLD + "CHEKING SERVICES" + color.END)
+    print(color.BOLD + "CHECKING SERVICES" + color.END)
     _orion, _ql, _driving, _notifications, _key = checkServices()
-    print(color.BOLD + "CREATING SUBSCRIPTIONS" + color.END)
-    createSubs(_orion)
-    print(color.BOLD + "PREPARING ENTITIES" + color.END)
-    functionalityTest(_orion,_driving,_key)
-    print(color.BOLD +  "CREATING ALERT" + color.END)
-    createAlert(_orion)
+    if _orion:
+        print(color.BOLD + "CREATING SUBSCRIPTIONS" + color.END)
+        createSubs(_orion)
+    if _orion and _driving and _key:
+        print(color.BOLD + "PREPARING ENTITIES" + color.END)
+        functionalityTest(_orion,_driving,_key)
+    if _orion:
+        print(color.BOLD +  "CREATING ALERT" + color.END)
+        createAlert(_orion)
