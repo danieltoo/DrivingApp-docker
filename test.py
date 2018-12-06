@@ -1,5 +1,7 @@
 import requests
 import json
+import sys
+import datetime, time
 
 class color:
    PURPLE = '\033[95m'
@@ -77,7 +79,6 @@ def checkServices():
     except: 
         print(paintError("The DrivingApp Service is not running"))
         _driving = False
-
     #NOTIFICATIONS SERVICE TEST 
     try:   
         notifications = requests.get('http://0.0.0.0:3001')
@@ -90,7 +91,6 @@ def checkServices():
     except:
         print(paintError("The Notifications Service is not running"))
         _notifications = False
-
     #KEYROCK TEST
     try:  
         key = requests.get('http://0.0.0.0:5000', headers={'X-Auth-token': 'ADMIN'})
@@ -103,6 +103,9 @@ def checkServices():
     except:
         print(paintError("The KeyRock Service is not running"))
         _key = False
+    
+    return _orion, _ql, _driving, _notifications, _key
+def createSubs ( _orion = True) :
     #SUBSCRIPTIONS 
     if _orion:
         #CREATE DEVICE SUBSCRIPTION TO QL
@@ -111,7 +114,7 @@ def checkServices():
             body = json.load(json_data)
             deviceSubs = requests.post("http://0.0.0.0:1026/v2/subscriptions",data=json.dumps(body), headers={"Content-Type":"application/json"})
             if (deviceSubs.status_code == 201) :
-                deviceSubMessage += paintOK("CREATED")
+                deviceSubMessage += paintOK("CREATED " ) + deviceSubs.headers["Location"]
             else :
                 deviceSubMessage += paintOK("FAILED")
             print(deviceSubMessage)
@@ -121,7 +124,7 @@ def checkServices():
             body = json.load(json_data)
             alertSubsQL = requests.post("http://0.0.0.0:1026/v2/subscriptions",data=json.dumps(body), headers={"Content-Type":"application/json"})
             if (alertSubsQL.status_code == 201) :
-                alertSubMessage += paintOK("CREATED")
+                alertSubMessage += paintOK("CREATED " )+ alertSubsQL.headers["Location"]
             else :
                 alertSubMessage += paintError("FAILED")
             print(alertSubMessage)
@@ -131,31 +134,31 @@ def checkServices():
             body = json.load(json_data)
             alertSubsN = requests.post("http://0.0.0.0:1026/v2/subscriptions",data=json.dumps(body), headers={"Content-Type":"application/json"})
             if (alertSubsN.status_code == 201) :
-                alertMessage += paintOK("CREATED")
+                alertMessage += paintOK("CREATED " ) + alertSubsN.headers["Location"]
             else :
                 alertMessage += paintError("FAILED")
             print(alertMessage)
-    #FUNCTIOANLITY TEST
+
+def functionalityTest (_orion = True, _driving = True, _key = True):
     #CREATE DEVICE ENTITY
-    if _orion:
+    if _orion :
         with open('Orion Entities/Device.json') as json_data:
             deviceMessage = "Device on the Orion"
             body = json.load(json_data)
             device = requests.post("http://0.0.0.0:1026/v2/entities",data=json.dumps(body), headers={"Content-Type":"application/json"})
             if (device.status_code == 201) :
-                deviceMessage += paintOK("CREATED")
+                deviceMessage += paintOK("CREATED ") + device.headers["Location"]
             else :
                 deviceMessage += paintError("FAILED")
             print(deviceMessage)
-    
-    if _driving:
+    if _driving :
         #CREATE DEVICE TOKEN ENTITY
         with open('Private Entities/DeviceToken.json') as json_data:
             tokenMessage = "Device Token on the DrivingApp Service"
             body = json.load(json_data)
             deviceToken = requests.post("http://0.0.0.0:4005/api/device/token",data=json.dumps(body), headers={"Content-Type":"application/json"})
             if (deviceToken.status_code == 200) :
-                tokenMessage += paintOK("CREATED")
+                tokenMessage += paintOK("CREATED ") + "/api/device/token/" + body["idDeviceToken"] 
             else :
                 tokenMessage += paintError("FAILED")
             print(tokenMessage)
@@ -165,7 +168,7 @@ def checkServices():
             body = json.load(json_data)
             zone = requests.post("http://0.0.0.0:4005/api/zone",data=json.dumps(body), headers={"Content-Type":"application/json"})
             if (zone.status_code == 201) :
-                zoneMessage += paintOK("CREATED")
+                zoneMessage += paintOK("CREATED ") + "/api/zone/" + zone.json()["id"]
             else :
                 zoneMessage += paintError("FAILED")
             print(zoneMessage)
@@ -176,11 +179,45 @@ def checkServices():
                 body = json.load(json_data)
                 user = requests.post("http://0.0.0.0:4005/api/user",data=json.dumps(body), headers={"Content-Type":"application/json"})
                 if (user.status_code == 201) :
-                    userMessage += paintOK("CREATED")
+                    userMessage += paintOK("CREATED ") + "/api/user/" + user.json()["id"]
                 else :
                     userMessage += paintError("FAILED")
                 print(userMessage)
     
+def createAlert(_orion =  True) :
+    if _orion:
+        #CREATE ALERT ENTITY
+        with open('Orion Entities/Alert.json') as json_data:
+            alertMessage = "Alert on the Orion"
+            body = json.load(json_data) 
+            dt = datetime.datetime.now()
+            s = time.mktime(dt.timetuple())
+            body["id"] += str(s) 
+            alert = requests.post("http://0.0.0.0:1026/v2/entities",data=json.dumps(body), headers={"Content-Type":"application/json"})
+            if (alert.status_code == 201) :
+                alertMessage += paintOK("CREATED ") + alert.headers["Location"]
+            else :
+                alertMessage += paintError("FAILED")
+            print(alertMessage)
 
+if (len(sys.argv) > 1) :
+    if sys.argv[1] == "check" :
+        checkServices()
 
-checkServices()
+    if sys.argv[1] == "create_subs":
+        createSubs()
+
+    if sys.argv[1] == "prepare":
+        functionalityTest()
+
+    if sys.argv[1] == "create_alert":
+        createAlert()
+else : 
+    print(color.BOLD + "CHEKING SERVICES" + color.END)
+    _orion, _ql, _driving, _notifications, _key = checkServices()
+    print(color.BOLD + "CREATING SUBSCRIPTIONS" + color.END)
+    createSubs(_orion)
+    print(color.BOLD + "PREPARING ENTITIES" + color.END)
+    functionalityTest(_orion,_driving,_key)
+    print(color.BOLD +  "CREATING ALERT" + color.END)
+    createAlert(_orion)
