@@ -19,12 +19,15 @@ class color:
    END = '\033[0m'
 
 def paintError(error):
+    """ This function print in color red the error messages"""
     return ("%s %s %s %s %s" % (color.BOLD, color.RED, error, color.END, color.END))
 def paintOK(ok):
+    """ This function print in color green the successful messages"""
     return ("%s %s %s %s %s" % (color.BOLD, color.GREEN, ok, color.END, color.END))
 
 
 def checkServices():
+    """ This function check if the services are running corectly """
     _orion = True 
     _ql = True
     _driving = True
@@ -109,6 +112,7 @@ def checkServices():
     
     return _orion, _ql, _driving, _notifications, _key
 def createSubs ( _orion = True) :
+    """ This function create the subscription necessary to DrivingApp work correctly"""
     #SUBSCRIPTIONS 
     if _orion:
         #CREATE DEVICE SUBSCRIPTION TO QL
@@ -143,6 +147,7 @@ def createSubs ( _orion = True) :
             print(alertMessage)
 
 def functionalityTest (_orion = True, _driving = True, _key = True):
+    """ This function make a simple functionality test""" 
     #CREATE DEVICE ENTITY
     if _orion :
         with open('Orion Entities/Device.json') as json_data:
@@ -188,6 +193,7 @@ def functionalityTest (_orion = True, _driving = True, _key = True):
                 print(userMessage)
     
 def createAlert(_orion =  True) :
+    """ This function create an alert entity into the Orion"""
     if _orion:
         #CREATE ALERT ENTITY
         with open('Orion Entities/Alert.json') as json_data:
@@ -204,6 +210,7 @@ def createAlert(_orion =  True) :
             print(alertMessage)
 
 def checkcContainers():
+    """ This function check the logs of the containers"""
     isOKQL = False
     isOKNT = False
     os.system("docker logs drivingapp-docker_quantumleap_1 &> logs/ql.log") 
@@ -224,8 +231,6 @@ def checkcContainers():
         
     if isOKQL and isOKNT :
         print(paintOK("Containers runnig correctly"))
-            
-        
 
 if (len(sys.argv) > 1) :
     if sys.argv[1] == "check" :
@@ -242,7 +247,7 @@ if (len(sys.argv) > 1) :
     
     if sys.argv[1] == "containers":
         checkcContainers()
-else : 
+"""else : 
     print(color.BOLD + "CHECKING SERVICES" + color.END)
     _orion, _ql, _driving, _notifications, _key = checkServices()
     if _orion:
@@ -254,3 +259,6 @@ else :
     if _orion:
         print(color.BOLD +  "CREATING ALERT" + color.END)
         createAlert(_orion)
+"""
+
+
